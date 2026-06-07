@@ -104,8 +104,19 @@
         if (firstBad) firstBad.focus();
         return;
       }
-      form.style.display = "none";
-      success.classList.add("show");
+      var submitBtn = form.querySelector("button[type=submit]");
+      if (submitBtn) submitBtn.disabled = true;
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function () {
+        form.style.display = "none";
+        success.classList.add("show");
+      }).catch(function () {
+        if (submitBtn) submitBtn.disabled = false;
+        alert("Si è verificato un errore nell'invio. Riprova tra poco.");
+      });
     });
   }
 
