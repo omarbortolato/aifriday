@@ -349,6 +349,8 @@
 
     <div class="card contact-card reveal">
       <form id="contactForm" novalidate>
+        <form data-netlify="true" name="contact" method="POST">
+          <input type="hidden" name="form-name" value="contact">
         <div class="field"><label for="nome">Nome e Cognome</label><input type="text" id="nome" name="nome" placeholder="Mario Rossi" required /><span class="err">Inserisci il tuo nome.</span></div>
         <div class="field"><label for="azienda">Azienda</label><input type="text" id="azienda" name="azienda" placeholder="La tua azienda" required /><span class="err">Inserisci il nome dell'azienda.</span></div>
         <div class="field"><label for="email">Email aziendale</label><input type="email" id="email" name="email" placeholder="nome@azienda.it" required /><span class="err">Inserisci un'email valida.</span></div>
